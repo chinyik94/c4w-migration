@@ -1,0 +1,210 @@
+DROP TABLE IF EXISTS public."Audit_PatientWoundDraft";
+
+CREATE TABLE IF NOT EXISTS public."Audit_PatientWoundDraft" (
+    "AuditAction" VARCHAR(5) NOT NULL,
+    "ActionTime" TIMESTAMP NOT NULL,
+    "PatientWoundDraftID" INT NOT NULL,
+    "VisitDate" TIMESTAMP NULL,
+    "OccurDate" TIMESTAMP NULL,
+    "SeenDate" TIMESTAMP NULL,
+    "LocationOfWound" TEXT NULL,
+    "Site" VARCHAR(50) NULL,
+    "Category" VARCHAR(50) NULL,
+    "Stage" VARCHAR(50) NULL,
+    "WoundStatusID_FK" INT NULL,
+    "Comments" TEXT NULL,
+    "SizeLength" DECIMAL(5, 2) NULL,
+    "SizeDepth" DECIMAL(5, 2) NULL,
+    "SizeWidth" DECIMAL(5, 2) NULL,
+    "Size" DECIMAL(5, 2) NULL,
+    "SurfaceArea" DECIMAL(5, 2) NULL,
+    "Perimeter" DECIMAL(5, 2) NULL,
+    "AverageDepth" DECIMAL(5, 2) NULL,
+    "MaximumDepth" DECIMAL(5, 2) NULL,
+    "MinimumDepth" DECIMAL(5, 2) NULL,
+    "Volume" DECIMAL(5, 2) NULL,
+    "Granulation" DECIMAL(5, 2) NULL,
+    "Slough" DECIMAL(5, 2) NULL,
+    "Necrosis" DECIMAL(5, 2) NULL,
+    "Epithelizing" DECIMAL(5, 2) NULL,
+    "Others" DECIMAL(5, 2) NULL,
+    "Exudate" VARCHAR(50) NULL,
+    "ExudateNature" VARCHAR(50) NULL,
+    "ExudatedConsistency" VARCHAR(50) NULL,
+    "Edges" VARCHAR(50) NULL,
+    "PeriWound" VARCHAR(50) NULL,
+    "Suffering" INT NULL,
+    "IsRedness" BOOLEAN NULL,
+    "IsSwelling" BOOLEAN NULL,
+    "IsWarmToTouch" BOOLEAN NULL,
+    "IsSmell" BOOLEAN NULL,
+    "IsAccept" BOOLEAN NULL,
+    "Reason" TEXT NULL,
+    "ImageUpload" VARCHAR(50) NULL,
+    "OriginalImage" VARCHAR(50) NULL,
+    "WoundBedImage" VARCHAR(50) NULL,
+    "AnnotatedImage" VARCHAR(50) NULL,
+    "PatientWoundID_FK" INT NULL,
+    "PatientWoundVisitID_FK" INT NULL,
+    "AssignDate" TIMESTAMP NULL,
+    "IsDeleted" BOOLEAN NOT NULL,
+    "CreatedDate" TIMESTAMP NOT NULL,
+    "CreatedBy_FK" INT NOT NULL,
+    "ModifiedDate" TIMESTAMP NULL,
+    "ModifiedBy_FK" INT NULL,
+    "DepthImage" VARCHAR(50) NULL,
+    "DepthMax" DECIMAL(5, 2) NULL,
+    "DepthEighty" DECIMAL(5, 2) NULL,
+    "DepthSixty" DECIMAL(5, 2) NULL,
+    "DepthForty" DECIMAL(5, 2) NULL,
+    "DepthTwenty" DECIMAL(5, 2) NULL,
+    "DepthNegative" DECIMAL(5, 2) NULL,
+    "DepthNans" DECIMAL(5, 2) NULL,
+    "UnderMining" VARCHAR(255) NULL,
+    "PatientID_FK" INT NULL,
+    "Rotation" DECIMAL(5, 2) NULL,
+    "Tempreture" DECIMAL(6, 2) NULL,
+    "PR" DECIMAL(6, 2) NULL,
+    "BPSys" DECIMAL(6, 2) NULL,
+    "BPDias" DECIMAL(6, 2) NULL,
+    "OriginalImageMeasurement" VARCHAR(50) NULL,
+    "WoundBedImageMeasurement" VARCHAR(50) NULL,
+    "DepthImageMeasurement" VARCHAR(50) NULL,
+    "AnnotatedImageMeasurement" VARCHAR(50) NULL,
+    "SizeLength_Auto" DECIMAL(5, 2) NULL,
+    "SizeDepth_Auto" DECIMAL(5, 2) NULL,
+    "SizeWidth_Auto" DECIMAL(5, 2) NULL,
+    "MeasurementUpdateRemark" VARCHAR(255) NULL,
+    "TCUpdateRemark" VARCHAR(255) NULL,
+    "isTCModified" BOOLEAN NULL,
+    "isWMModified" BOOLEAN NULL,
+    "isUploadImageModified" BOOLEAN NULL,
+    "woundOverlaysImageDistance" DECIMAL(5, 2) NULL,
+    "woundOverlaysImage" VARCHAR(50) NULL,
+	"TO_Comments" TEXT NULL,
+	"NextReviewDate" TIMESTAMP NULL,
+	"NextTreatmentDate" TIMESTAMP NULL,
+	"TreatmentRemarks" TEXT NULL,
+	"LocationRemark" TEXT NULL
+);
+
+DROP TABLE IF EXISTS public."PatientWoundDraft";
+
+CREATE TABLE IF NOT EXISTS public."PatientWoundDraft" (
+    "PatientWoundDraftID" SERIAL PRIMARY KEY,
+    "VisitDate" TIMESTAMP NULL,
+    "OccurDate" TIMESTAMP NULL,
+    "SeenDate" TIMESTAMP NULL,
+    "LocationOfWound" TEXT NULL,
+    "Site" VARCHAR(50) NULL,
+    "Category" VARCHAR(50) NULL,
+    "Stage" VARCHAR(50) NULL,
+    "WoundStatusID_FK" INT NULL,
+    "Comments" TEXT NULL,
+    "SizeLength" DECIMAL(5, 2) NULL,
+    "SizeDepth" DECIMAL(5, 2) NULL,
+    "SizeWidth" DECIMAL(5, 2) NULL,
+    "Size" DECIMAL(5, 2) NULL,
+    "SurfaceArea" DECIMAL(5, 2) NULL,
+    "Perimeter" DECIMAL(5, 2) NULL,
+    "AverageDepth" DECIMAL(5, 2) NULL,
+    "MaximumDepth" DECIMAL(5, 2) NULL,
+    "MinimumDepth" DECIMAL(5, 2) NULL,
+    "Volume" DECIMAL(5, 2) NULL,
+    "Granulation" DECIMAL(5, 2) NULL,
+    "Slough" DECIMAL(5, 2) NULL,
+    "Necrosis" DECIMAL(5, 2) NULL,
+    "Epithelizing" DECIMAL(5, 2) NULL,
+    "Others" DECIMAL(5, 2) NULL,
+    "Exudate" VARCHAR(50) NULL,
+    "ExudateNature" VARCHAR(50) NULL,
+    "ExudatedConsistency" VARCHAR(50) NULL,
+    "Edges" VARCHAR(50) NULL,
+    "PeriWound" VARCHAR(50) NULL,
+    "Suffering" INT NULL,
+    "IsRedness" BOOLEAN NULL,
+    "IsSwelling" BOOLEAN NULL,
+    "IsWarmToTouch" BOOLEAN NULL,
+    "IsSmell" BOOLEAN NULL,
+    "IsAccept" BOOLEAN NULL,
+    "Reason" TEXT NULL,
+    "ImageUpload" VARCHAR(50) NULL,
+    "OriginalImage" VARCHAR(50) NULL,
+    "WoundBedImage" VARCHAR(50) NULL,
+    "AnnotatedImage" VARCHAR(50) NULL,
+    "PatientWoundID_FK" INT NULL,
+    "PatientWoundVisitID_FK" INT NULL,
+    "AssignDate" TIMESTAMP NULL,
+    "IsDeleted" BOOLEAN NOT NULL,
+    "CreatedDate" TIMESTAMP NOT NULL,
+    "CreatedBy_FK" INT NOT NULL,
+    "ModifiedDate" TIMESTAMP NULL,
+    "ModifiedBy_FK" INT NULL,
+    "DepthImage" VARCHAR(50) NULL,
+    "DepthMax" DECIMAL(5, 2) NULL,
+    "DepthEighty" DECIMAL(5, 2) NULL,
+    "DepthSixty" DECIMAL(5, 2) NULL,
+    "DepthForty" DECIMAL(5, 2) NULL,
+    "DepthTwenty" DECIMAL(5, 2) NULL,
+    "DepthNegative" DECIMAL(5, 2) NULL,
+    "DepthNans" DECIMAL(5, 2) NULL,
+    "UnderMining" VARCHAR(255) NULL,
+    "PatientID_FK" INT NULL,
+    "Rotation" DECIMAL(5, 2) NULL,
+    "Tempreture" DECIMAL(6, 2) NULL,
+    "PR" DECIMAL(6, 2) NULL,
+    "BPSys" DECIMAL(6, 2) NULL,
+    "BPDias" DECIMAL(6, 2) NULL,
+    "OriginalImageMeasurement" VARCHAR(50) NULL,
+    "WoundBedImageMeasurement" VARCHAR(50) NULL,
+    "DepthImageMeasurement" VARCHAR(50) NULL,
+    "AnnotatedImageMeasurement" VARCHAR(50) NULL,
+    "SizeLength_Auto" DECIMAL(5, 2) NULL,
+    "SizeDepth_Auto" DECIMAL(5, 2) NULL,
+    "SizeWidth_Auto" DECIMAL(5, 2) NULL,
+    "MeasurementUpdateRemark" VARCHAR(255) NULL,
+    "TCUpdateRemark" VARCHAR(255) NULL,
+    "isTCModified" BOOLEAN NULL,
+    "isWMModified" BOOLEAN NULL,
+    "isUploadImageModified" BOOLEAN NULL,
+    "woundOverlaysImageDistance" DECIMAL(5, 2) NULL,
+    "woundOverlaysImage" VARCHAR(50) NULL,
+	"TO_Comments" TEXT NULL,
+	"NextReviewDate" TIMESTAMP NULL,
+	"NextTreatmentDate" TIMESTAMP NULL,
+	"TreatmentRemarks" TEXT NULL,
+	"LocationRemark" TEXT NULL,
+
+	CONSTRAINT "FK_PatientWoundDraft_Code"
+	FOREIGN KEY ("WoundStatusID_FK")
+	REFERENCES public."Code"("CodeId"),
+
+	CONSTRAINT "FK_PatientWoundDraft_PatientWound"
+	FOREIGN KEY ("PatientWoundID_FK")
+	REFERENCES public."PatientWound"("PatientWoundID"),
+
+	CONSTRAINT "FK_PatientWoundDraft_PatientWoundVisit"
+	FOREIGN KEY ("PatientWoundVisitID_FK")
+	REFERENCES public."PatientWoundVisit"("PatientWoundVisitID")
+);
+
+CREATE OR REPLACE FUNCTION public."fn_tr_PatientWoundDraft"()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        INSERT INTO public."Audit_PatientWoundDraft"
+        SELECT 'I', NOW(), NEW.*;
+    ELSIF TG_OP = 'UPDATE' THEN
+        INSERT INTO public."Audit_PatientWoundDraft"
+        SELECT 'U', NOW(), NEW.*;
+    ELSIF TG_OP = 'DELETE' THEN
+        INSERT INTO public."Audit_PatientWoundDraft"
+        SELECT 'D', NOW(), OLD.*;
+    END IF;
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER "tr_PatientWoundDraft"
+AFTER INSERT OR UPDATE OR DELETE ON public."PatientWoundDraft"
+FOR EACH ROW EXECUTE FUNCTION public."fn_tr_PatientWoundDraft"();
